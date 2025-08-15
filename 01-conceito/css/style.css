@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --first-color: #779b63;
+    --second-color: #d62828;
+    --third-color: #f77f00;
+    --fourth-color: #291e8b;
+    --bg-dark: #333;
+    --bg-white: #fff;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--bg-dark);
+    padding: 1rem;
+    font-family: calibri;
+    font-size: 1.6rem;
+}
+
+h1 {
+    color: var(--bg-white);
+    font-size: 4rem;
+    margin: 1rem 0;
+}
+
+h2 {
+    color: var(--first-color);
+    font-size: 3rem;
+}
+
+.container {
+    margin: 2rem auto;
+    text-align: center;
+    color: var(--bg-white);
+}
+
+.box1 {
+    background-color: var(--first-color);
+    min-height: 5rem;
+}
+
+.box2 {
+    background-color: var(--second-color);
+    min-height: 5rem;
+}
+
+.box3 {
+    background-color: var(--third-color);
+    min-height: 5rem;
+}
+
+.box4 {
+    background-color: var(--fourth-color);
+    min-height: 5rem;
+}
+
+.grid-container {
+    display: grid;
+}
+
+/* Usando medidas para criar as colunas */
+.ex-1 {
+    grid-template-columns: 100px 200px 150px 80px;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-template-columns: 30rem 10rem 5rem 15rem ;
+    grid-template-columns: 100px 30% 20rem 10%;
+    grid-template-columns: 1fr 2fr 3fr 4fr;
+    /* grid-template-rows: 300px 500px; */
+}
+
+.ex-2 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 100px repeat(2, 300px) 1fr;
+}
+
+/* minmax() - definir o menor e o maior tamanho das colunas */
+.ex-3 {
+    grid-template-columns: repeat(4, minmax(150px, 200px));
+    grid-template-columns: 100px minmax(300px, 400px) 80px 60px;
+}
+
+/* auto-fit()
+Usado, na maiorias das vezes, quando não sabemos o número de colunas.
+Tentar deixar todas as colunas na mesma linha, quando não couber ele quebra a linha.
+Caso tenhamos um número pequenos de colunas, ele esticará essas colunas para que não fique 
+espaço vazio na linha.
+Como não sabemos o número de colunas, usar a função repeat()
+Para garantir uma melhor visualização das colunas é recomendado uso do minmax()
+*/
+
+.ex-4 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* auto-fill()
+Mesma coisa que o auto-fit, apenas com a diferença de que se existir poucas colunas,
+ele não esticará essas colunas para ocupar todo espaço vazio */
+
+.ex-5 {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+

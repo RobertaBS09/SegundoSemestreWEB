@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-light-700: #ffffff;
+    --color-light-500: #f9f9f9;
+    --color-light-300: #cccccc;
+    --gradient: linear-gradient(45deg,
+    hsl(240deg 19% 17%) 0%,
+    hsl(284deg 16% 21%) 9%,
+    hsl(326deg 17% 26%) 33%,
+    hsl(348deg 19% 33%) 62%,
+    hsl(7deg 19% 38%) 80%,
+    hsl(21deg 22% 41%) 90%,
+    hsl(35deg 20% 44%) 96%,
+    hsl(55deg 15% 47%) 100%);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: calibri;
+    background-color: var(--color-light-500);
+}
+
+header{
+    /* centralizar o titulo */
+    text-align: center;
+    /* espaço eixo y  */
+    padding-block: 2rem ;
+    background-color: var(--color-light-700);
+    border-bottom:1px solid var(--color-light-300);
+    
+    
+}
+
+main{
+    max-width: 132rem;
+    /* eixo x( centraliza) */
+    margin-inline: auto;
+}
+
+.product-grid{
+    display: grid;
+    /* 4 colunas , tamanho minimo (nunca vai ser menor q o conteudo da div,e nunca vai ser maior q 1 fracao*/
+    grid-template-columns: repeat(4,minmax(auto,1fr));
+    /* espaçamento tanto nas linhas quanto colunas. para distanciar, espaçar */
+    gap: 1rem;
+    /* para desgrudar da borda do titulo */
+    padding:2rem;
+
+}
+
+/* esse cara que vai receber o fundo gradiante */
+.product-item{
+/* gradietne so vai com bkg image */
+background-image: var(--gradient);
+color: var(--color-light-300);
+border-radius: .5rem;
+/* 2rem para cima e baixo 1 rem para direita e esquerda */
+padding: 2rem 1rem;
+text-align: center;
+/* para ficar igual quando c lica em um link */
+cursor: pointer;
+/* para alinhas no centro  */
+align-content: center;
+}
+
+.product-item img{
+    max-width: 60%;
+    /* para hover */
+    transition: .5s;
+}
+
+.product-item:hover img{
+    scale:1.2;
+}
+
+
+.product-item div{
+    display: flex;
+    /* um do lado do outro */
+    justify-content: space-evenly;
+    margin-block:2rem ;
+    
+
+    p{
+        font-weight: 600;
+        font-size: 2rem;
+    }
+}
+
+footer{
+    /* centralizar o titulo */
+    text-align: center;
+    /* espaço eixo y  */
+    padding-block: 2rem ;
+    background-color: var(--color-light-700);
+    border-top:1px solid var(--color-light-300);
+    }
+
+
+
+ /* para deixar as imagens to tamanho certo 2 pq as imagens q nn sao do tamanho normao ou ocupam 2 linhas ou duas colunas ou 2 linhas e2 clunas    */
+.row-span{
+    grid-row: span 2;
+}
+.col-span{
+    grid-column: span 2;
+}
+/* responsivo */
+@media(width <=1024px){
+    .product-grid{
+        /* quando atela diminuir, vai ter so 2 colunas */
+        grid-template-columns: repeat(2 ,minmax(auto,1fr));
+       
+
+    }
+
+    /* tela é menor, ele vai faezer p span de 1 coluna */
+    .col-span{
+        grid-column: span 1;
+    }
+}
+
+@media(width:650px){
+    .product-grid{
+        /* quando atela diminuir, vai ter so 2 colunas */
+        grid-template-columns: 1;
+       
+
+    }
+}
